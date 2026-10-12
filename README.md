@@ -14,6 +14,10 @@ and compare their timings and execution plans.
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+<br/>
+
+<img src="docs/screenshots/overview.png" alt="Table browser with the SQL console pinned at the bottom" width="100%" />
+
 </div>
 
 ---
@@ -29,6 +33,35 @@ and compare their timings and execution plans.
 | 💻 **SQL console** | Pinned to the bottom of the page. Type any `SELECT`, press `Ctrl + Enter`, and get the execution time and the result. |
 | 🔒 **Read-only by design** | `INSERT`, `UPDATE`, `DELETE`, DDL and multi-statement queries are blocked at three layers. |
 | 🌐 **English / 한국어** | Switch languages from the header. Your choice is remembered. |
+
+## Screenshots
+
+### A/B comparison
+
+Run both queries and see which is faster, and by how much.
+
+<img src="docs/screenshots/example-subquery.png" alt="Correlated subquery vs JOIN comparison" width="100%" />
+<img src="docs/screenshots/example-pagination.png" alt="OFFSET vs keyset pagination comparison" width="100%" />
+
+### EXPLAIN ANALYZE
+
+See the plan behind the timing. Here, a missing index turns into a parallel sequential scan.
+
+<img src="docs/screenshots/explain.png" alt="EXPLAIN ANALYZE output for an unindexed filter" width="100%" />
+
+### ERD
+
+<img src="docs/screenshots/erd.png" alt="Entity relationship diagram of the sample schema" width="100%" />
+
+### SQL console
+
+<img src="docs/screenshots/console.png" alt="SQL console with execution time and results" width="100%" />
+
+<details>
+<summary><b>한국어 UI</b></summary>
+<br/>
+<img src="docs/screenshots/overview-ko.png" alt="Korean UI" width="100%" />
+</details>
 
 ## Built-in scenarios
 
