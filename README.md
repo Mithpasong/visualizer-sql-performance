@@ -7,6 +7,10 @@
 Run two queries that answer the same question, side by side on a real Postgres database,<br/>
 and compare their timings and execution plans.
 
+### 🚀 [Live demo → visualizer-sql-performance.vercel.app](https://visualizer-sql-performance.vercel.app)
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_App-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://visualizer-sql-performance.vercel.app)
+
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
