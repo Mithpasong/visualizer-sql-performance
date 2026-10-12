@@ -114,6 +114,8 @@ DATABASE_URL=postgresql://postgres.<project-ref>:<password>@aws-0-<region>.poole
 
 > Any PostgreSQL database works, not just Supabase. Connections to `localhost` skip SSL.
 
+> **Deploying to Vercel (or any serverless host)?** Use the **Transaction pooler** connection string (port `6543`) for `DATABASE_URL`. The session pooler (port `5432`) allows only a few clients, and serverless instances can quickly hit `EMAXCONNSESSION`.
+
 ### 3. Load the sample data
 
 ```bash

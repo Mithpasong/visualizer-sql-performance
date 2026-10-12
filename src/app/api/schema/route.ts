@@ -37,9 +37,11 @@ type Row = Record<string, string | boolean | null>;
 export async function GET() {
   await connection();
   try {
-    const [columns, constraints, stats, indexes] = await Promise.all(
-      [COLUMNS_SQL, CONSTRAINTS_SQL, STATS_SQL, INDEXES_SQL].map((sql) => runReadOnly(sql, [], 10_000)),
-    );
+    // Run one after another so this request holds a single connection at a time.
+    const columns = await runReadOnly(COLUMNS_SQL, [], 10_000);
+    const constraints = await runReadOnly(CONSTRAINTS_SQL, [], 10_000);
+    const stats = await runReadOnly(STATS_SQL, [], 10_000);
+    const indexes = await runReadOnly(INDEXES_SQL, [], 10_000);
 
     const tables = new Map<string, TableInfo>();
     for (const r of columns.rows as Row[]) {

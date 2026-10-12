@@ -14,10 +14,14 @@ function getPool(): Pool {
     throw new Error("DATABASE_URL is not set. Check your .env.local file.");
   }
 
+  // Keep few connections and release idle ones quickly: on serverless hosts every instance
+  // has its own pool, and Supabase's session pooler only allows a small number of clients.
   globalForPg.pgPool = new Pool({
     connectionString,
     ssl: connectionString.includes("localhost") ? false : { rejectUnauthorized: false },
-    max: 5,
+    max: process.env.VERCEL ? 1 : 3,
+    idleTimeoutMillis: 5_000,
+    connectionTimeoutMillis: 10_000,
   });
   return globalForPg.pgPool;
 }
